@@ -1,0 +1,108 @@
+# Example Configuration for ERP Modernization Health Check
+
+# Model Configuration
+model:
+  llm_provider: huggingface  # Options: huggingface, ollama, openai
+  llm_model: mistralai/Mistral-7B-Instruct-v0.2
+  llm_temperature: 0.1
+  llm_max_tokens: 2048
+  llm_device: cpu  # Options: cpu, cuda, mps
+  
+  embedding_provider: huggingface
+  embedding_model: sentence-transformers/all-MiniLM-L6-v2  # Fast and efficient
+  # Alternative: BAAI/bge-large-en-v1.5 (better quality, slower)
+  embedding_device: cpu
+  
+  # Memory optimization (for large models)
+  load_in_8bit: false
+  load_in_4bit: false
+  trust_remote_code: false
+
+# Vector Store Configuration (ChromaDB)
+vector_store:
+  persist_directory: ./data/chromadb
+  collection_name: erp_modernization
+  distance_metric: cosine  # Options: cosine, l2, ip
+  top_k: 5
+  score_threshold: 0.7
+
+# Document Chunking
+chunking:
+  chunk_size: 1000
+  chunk_overlap: 200
+  use_semantic_chunking: false
+  breakpoint_threshold_amount: 95
+
+# Data Ingestion
+data_ingestion:
+  input_directory: ./data/input
+  processed_directory: ./data/processed
+  supported_formats:
+    - pdf
+    - docx
+    - xlsx
+    - csv
+    - txt
+    - pptx
+  enable_auto_labeling: true
+  category_mapping:
+    erp_exports:
+      - usage
+      - transaction
+      - log
+    pain_points:
+      - complaint
+      - issue
+      - feedback
+    audits:
+      - audit
+      - compliance
+      - finding
+    benchmarks:
+      - benchmark
+      - kpi
+      - metric
+    process_maps:
+      - bpmn
+      - workflow
+      - process
+
+# Analysis Configuration
+analysis:
+  enable_sentiment: true
+  sentiment_model: distilbert-base-uncased-finetuned-sst-2-english
+  
+  enable_process_mining: true
+  min_variant_frequency: 0.05
+  
+  enable_benchmarking: true
+  benchmark_threshold: 0.85
+  
+  risk_weights:
+    high: 1.0
+    medium: 0.6
+    low: 0.3
+
+# Visualization & Reporting
+visualization:
+  output_directory: ./data/output
+  heatmap_colorscale: RdYlGn_r
+  heatmap_width: 1200
+  heatmap_height: 800
+  export_formats:
+    - html
+    - json
+  enable_interactive_dashboard: true
+  dashboard_theme: plotly_white
+
+# API Server Configuration
+api:
+  host: 0.0.0.0
+  port: 8000
+  reload: true
+  workers: 1
+  enable_cors: true
+  cors_origins:
+    - "*"
+  rate_limit_enabled: false
+  max_requests_per_minute: 60

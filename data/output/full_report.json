@@ -1,0 +1,208 @@
+{
+  "ingestion_stats": {
+    "total_files": 3,
+    "successful": 3,
+    "failed": 0,
+    "by_category": {
+      "general": 1,
+      "erp_exports": 1,
+      "benchmarks": 1
+    },
+    "by_format": {
+      "pdf": 2,
+      "csv": 1
+    }
+  },
+  "vector_store_stats": {
+    "collection_name": "erp_modernization",
+    "persist_directory": "./data/chromadb",
+    "document_count": 38267
+  },
+  "process_mining": {
+    "total_processes": 1,
+    "variants": [
+      {
+        "variant_id": "50_CRM_ERP_SAP",
+        "frequency": 1.0,
+        "count": 1,
+        "avg_duration_hours": 6.0,
+        "steps": [
+          "1 Service Summary",
+          "8  inconsistent material document header inconsistencies needs to be fixed in your system",
+          "2 Landscape",
+          "2.1 Products and Components in current Landscape",
+          "2.2 Servers in current Landscape"
+        ],
+        "systems": [
+          "ERP",
+          "SAP",
+          "CRM"
+        ]
+      }
+    ],
+    "bottlenecks": [],
+    "process_complexity": {
+      "avg_steps": 50.0,
+      "max_steps": 50,
+      "avg_systems": 3.0,
+      "avg_participants": 5.0,
+      "complexity_score": 73.0
+    },
+    "recommendations": [
+      "High process complexity detected. Consider process simplification and automation opportunities."
+    ]
+  },
+  "sentiment": {
+    "overall_sentiment": {
+      "average_score": -0.00520712349980643,
+      "median_score": -0.00520712349980643,
+      "std_deviation": 0.0,
+      "positive_ratio": 0.0,
+      "negative_ratio": 0.0,
+      "neutral_ratio": 1.0,
+      "total_analyzed": 1
+    },
+    "pain_points": [
+      {
+        "source": "data/input/ERP usage exports (ECCS4), line-of-business pain points, prior SAP health check audit reports.pdf",
+        "sentiment_score": -0.00520712349980643,
+        "category": "performance",
+        "indicators": [
+          "problem",
+          "issue",
+          "error",
+          "fail",
+          "slow",
+          "cannot",
+          "delay",
+          "bug",
+          "crash",
+          "timeout",
+          "complex"
+        ],
+        "key_phrases": [
+          "2025 \n \n \nConfidential Service Summary 1/179  \n1 Service Summary \n \nThe EarlyWatch Alert service has detected severe problems that may \ncause you to lose business",
+          "Users with critical authorizations, which allow to do anything in client 000 \n Users with critical authorizations, which allow to do anything in other client(s) than 000 \n Users with critical authoriz",
+          "Configuration issue causes expensive SQL statement",
+          "Academy - \nCHECK OVERVIEW \nTopic \nRating \nTopic Subtopic \nRating \nSubtopic \n Software Configuration for PRD   \n   SAP Application Release - Maintenance Phases \n   Security Risk Due to Outdated Support",
+          "2025 \n \n \nConfidential Service Summary 3/179  \nTopic \nRating \nTopic Subtopic \nRating \nSubtopic \n   Critical authorizations, which should only see very limited \nuse in production \n Software Change and "
+        ],
+        "severity": "medium",
+        "excerpt": "EarlyWatch Alert Pharma 04.10.2025 - 10.10.2025 \n \n \nConfidential Service Summary 1/179  \n1 Service Summary \n \nThe EarlyWatch Alert service has detected severe problems that may \ncause you to lose business. \nPlease evaluate the recommendations. \n \nALERTS DECISIVE FOR RED REPORT \n SAP HANA database: ",
+        "category_count": 1
+      }
+    ],
+    "sentiment_by_category": {
+      "erp_exports": {
+        "average_score": -0.00520712349980643,
+        "count": 1,
+        "negative_count": 0
+      }
+    },
+    "sentiment_trend": [],
+    "top_issues": [
+      {
+        "category": "performance",
+        "total_count": 1,
+        "high_severity": 0,
+        "medium_severity": 1,
+        "low_severity": 0,
+        "priority": 2
+      }
+    ],
+    "heatmap_data": [
+      {
+        "category": "performance",
+        "severity": "medium",
+        "count": 1
+      }
+    ]
+  },
+  "benchmarking": {
+    "kpis": {
+      "user_satisfaction": {
+        "values": [
+          25.0
+        ],
+        "sources": [
+          "data/input/ERP usage exports (ECCS4), line-of-business pain points, prior SAP health check audit reports.pdf"
+        ],
+        "average": 25.0,
+        "count": 1
+      }
+    },
+    "gaps": [],
+    "value_drivers": [],
+    "prioritized_improvements": [],
+    "gap_analysis_summary": {},
+    "recommendations": [
+      "All KPIs are performing at optimal levels."
+    ]
+  },
+  "risk": {
+    "risk_summary": {
+      "total_findings": 1,
+      "by_level": {
+        "high": 1,
+        "medium": 0,
+        "low": 0
+      },
+      "by_category": {
+        "integration": 1
+      },
+      "overall_risk_score": 96.0,
+      "critical_findings": 1
+    },
+    "risk_findings": [
+      {
+        "source": "data/input/ERP usage exports (ECCS4), line-of-business pain points, prior SAP health check audit reports.pdf",
+        "category": "integration",
+        "level": "high",
+        "finding": "2025 \n \n \nConfidential Service Summary 1/179  \n1 Service Summary \n \nThe EarlyWatch Alert service has detected severe problems that may \ncause you to lose business",
+        "impact": "critical",
+        "likelihood": "high",
+        "risk_score": 96.0
+      }
+    ],
+    "risk_heatmap": [
+      {
+        "category": "integration",
+        "level": "high",
+        "count": 1,
+        "risk_score": 96.0
+      }
+    ],
+    "readiness_score": {
+      "overall_score": 67.0,
+      "factors": {
+        "technical": 50.0,
+        "organizational": 100.0,
+        "process": 50.0,
+        "data": 60.0,
+        "security": 75.0
+      },
+      "status": "partially_ready",
+      "blockers": []
+    },
+    "readiness_factors": {
+      "technical": 50.0,
+      "organizational": 100.0,
+      "process": 50.0,
+      "data": 60.0,
+      "security": 75.0
+    },
+    "mitigation_strategies": [
+      {
+        "category": "integration",
+        "risk_count": 1,
+        "high_risk_count": 1,
+        "strategy": "Modernize integration architecture using API-first approach and middleware",
+        "priority": "high"
+      }
+    ],
+    "recommendations": [
+      "Address 1 critical findings immediately before proceeding with modernization.",
+      "Focus on integration risks (1 findings) as a priority area."
+    ]
+  }
+}
